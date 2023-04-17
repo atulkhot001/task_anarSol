@@ -1,0 +1,27 @@
+<!-- <p>child-one works!</p> -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <th></th>
+                    <th>Sr.no</th>
+                    <th>User Id</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Completed</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of dataArr; let i = index">
+                        <td><input type="checkbox" [checked]="data.completed" (change)="onClick(data)"></td>
+                        <td>{{i + 1}}</td>
+                        <td>{{data.userId}}</td>
+                        <td>{{data.id}}</td>
+                        <td [ngClass]="{'strike-through' : data.completed}">{{data.title}}</td>
+                        <td [ngClass]="{'status-comp' : data.completed}">{{data.completed? 'Completed' : 'Pending'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
